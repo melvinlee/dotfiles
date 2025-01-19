@@ -20,6 +20,7 @@
     k9s # Kubernetes CLI To Manage Your Clusters In Style!
     bat # A cat(1) clone with wings. https://github.com/sharkdp/bat
     cmatrix # cmatrix is a curses based program that simulates the display from "The Matrix"
+    glow # Render markdown on the CLI, with pizzazz!
   ];
 
   home.file = {
