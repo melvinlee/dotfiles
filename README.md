@@ -1,15 +1,29 @@
-# dotfiles
+# Dotfiles Configuration
 
-```sh
-# Install with stow:
-stow .
-```
+[![Nix Version](https://img.shields.io/badge/Nix-2.19-blue.svg)](https://nixos.org)
+[![Darwin Version](https://img.shields.io/badge/Darwin-23.0.0-blue.svg)](https://github.com/LnL7/nix-darwin)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Nix Darwin Configuration
+## Introduction
+This repository contains my personal dotfiles and system configuration for macOS using Nix and Nix-Darwin.
+
+## Features
+- System-wide package management with Nix
+- Declarative system configuration with Nix-Darwin
+- Home directory configuration with Home Manager
+- Git configuration management
+- Shell environment setup
 
 ## Prerequisites
-- macOS 10.15 or later
+### System Requirements
+- macOS 10.15 (Catalina) or later
 - Administrative privileges
+- Xcode Command Line Tools installed
+
+### Required Tools
+- [Nix Package Manager](https://nixos.org/download.html)
+- [Nix-Darwin](https://github.com/LnL7/nix-darwin)
+- [Home Manager](https://github.com/nix-community/home-manager)
 
 ## Installation Steps
 
@@ -32,14 +46,24 @@ nix build .#mini
 darwin-rebuild switch --flake .#mini
 ```
 
+## Configuration
+The configuration is organized into the following directories:
+
+- `git/`: Git configuration files
+- `nix/`: Nix package manager configuration
+- `nix-darwin/`: System configuration using Nix-Darwin
+
+## Troubleshooting
+Common issues and solutions:
+
+1. **Permission errors**: Run commands with `sudo` when necessary
+2. **Broken packages**: Try running `nix-collect-garbage -d` to clean up old packages
 
 ## References
-
 ### Official Documentation
 - [Nix Package Manager](https://nixos.org/manual/nix/stable/)
 - [Nix-Darwin](https://github.com/LnL7/nix-darwin)
 - [Home Manager](https://nix-community.github.io/home-manager/)
-- [Nix Flakes](https://nixos.wiki/wiki/Flakes)
 
 ### Community Resources
 - [NixOS Wiki](https://nixos.wiki/)
@@ -50,7 +74,3 @@ darwin-rebuild switch --flake .#mini
 - [Getting started with Nix on MacOS](https://nixcademy.com/2024/01/15/nix-on-macos/)
 - [macOS Setup Guide](https://sourabhbajaj.com/mac-setup/)
 - [Declarative macOS Configuration](https://xyno.space/post/nix-darwin-introduction)
-
-### Troubleshooting
-- [Common Issues](https://github.com/LnL7/nix-darwin/wiki/Troubleshooting)
-- [Nix Learn](https://nix.dev/)
