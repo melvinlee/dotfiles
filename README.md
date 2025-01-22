@@ -27,6 +27,11 @@ This repository contains my personal dotfiles and system configuration for macOS
 
 ## Installation Steps
 
+### Install dotfiles with stow:
+```bash
+stow .
+```
+
 ### Install Nix Package Manager
 ```bash
 sh <(curl -L https://nixos.org/nix/install)
