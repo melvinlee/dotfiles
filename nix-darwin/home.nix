@@ -21,6 +21,8 @@
     bat # A cat(1) clone with wings. https://github.com/sharkdp/bat
     cmatrix # cmatrix is a curses based program that simulates the display from "The Matrix"
     glow # Render markdown on the CLI, with pizzazz!
+    just # Just a command runner
+    kubernetes-helmPlugins.helm-diff # A helm plugin that shows a diff explaining what a helm upgrade would change
   ];
 
   home.file = {
