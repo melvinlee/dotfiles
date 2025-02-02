@@ -23,6 +23,7 @@
     glow # Render markdown on the CLI, with pizzazz!
     just # Just a command runner
     kubernetes-helmPlugins.helm-diff # A helm plugin that shows a diff explaining what a helm upgrade would change
+    opentofu  # Open source Tofu
   ];
 
   home.file = {
