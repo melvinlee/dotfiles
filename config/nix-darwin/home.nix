@@ -32,7 +32,7 @@
   home.sessionVariables = {
   };
 
-  programs.zsh.enable = true;
+  # programs.zsh.enable = true;
 
   home.sessionPath = [
     "/run/current-system/sw/bin"
