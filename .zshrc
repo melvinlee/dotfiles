@@ -62,3 +62,7 @@ alias g=git
 alias d=docker
 alias k=kubectl
 alias tf=tofu
+
+
+# Shell integrations
+eval "$(fzf --zsh)"
