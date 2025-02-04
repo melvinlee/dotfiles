@@ -34,7 +34,11 @@ stow .
 
 ### Install Nix Package Manager
 ```bash
+# Install Nix for macOS
 sh <(curl -L https://nixos.org/nix/install)
+
+# To verify that Nix has been installed successfully,
+nix-shell -p neofetch --run neofetch
 ```
 
 ### Install Nix-Darwin
