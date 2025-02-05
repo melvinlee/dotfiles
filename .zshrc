@@ -67,3 +67,11 @@ alias tf=tofu
 
 # Shell integrations
 eval "$(fzf --zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Volumes/SSD/melvinlee/.lmstudio/bin"
+
+yt() {
+    local video_link="$1"
+    fabric -y "$video_link" --transcript
+}
