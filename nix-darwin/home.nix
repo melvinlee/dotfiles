@@ -17,6 +17,7 @@
     checkov # Infrastructure as Code Static Analysis
     kubernetes-helm # The Kubernetes Package Manager
     kubectl # Kubernetes command-line tool
+    kubectx # Faster way to switch between clusters and namespaces in kubectl
     helmfile # Deploy Kubernetes Helm Charts
     k9s # Kubernetes CLI To Manage Your Clusters In Style!
     bat # A cat(1) clone with wings. https://github.com/sharkdp/bat
