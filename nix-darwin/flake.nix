@@ -38,6 +38,9 @@
             casks = [
               "ghostty" # A simple and lightweight tool for creating and managing SSH tunnels
               "google-chrome" # The web browser from Google
+              "hammerspoon" # Staggeringly powerful macOS desktop automation with Lua
+              "orbstack"
+              "the-unarchiver" # The Unarchiver is a small and easy to use program that can unarchive many different kinds of archive files 
             ];
           };
           services.spacebar = {
