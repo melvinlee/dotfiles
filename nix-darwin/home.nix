@@ -5,7 +5,7 @@
 
 {
   home.username = "melvinlee";
-  home.homeDirectory = "/Users/melvinlee";
+  home.homeDirectory = "/Volumes/SSD/melvinlee";
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   nixpkgs.config.allowUnfree = true;
@@ -16,6 +16,7 @@
     kind # Kubernetes IN Docker - local clusters for testing Kubernetes
     checkov # Infrastructure as Code Static Analysis
     kubernetes-helm # The Kubernetes Package Manager
+    kubectl # Kubernetes command-line tool
     helmfile # Deploy Kubernetes Helm Charts
     k9s # Kubernetes CLI To Manage Your Clusters In Style!
     bat # A cat(1) clone with wings. https://github.com/sharkdp/bat

@@ -32,7 +32,7 @@
         };
       };
 
-      users.users.melvinlee.home = "/Users/melvinlee";
+      users.users.melvinlee.home = "/Volumes/SSD/melvinlee";
       home-manager.backupFileExtension = "backup";
 
       services.nix-daemon.enable = true;
@@ -69,8 +69,5 @@
           }
         ];
     };
-
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."mini".pkgs;
   };
 }
