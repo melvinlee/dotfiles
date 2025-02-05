@@ -35,6 +35,9 @@
 
           homebrew = {
             enable = true;
+            brews = [
+              "stow" # GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located in separate directories on the filesystem, and makes them appear to be installed in the same place.
+            ];
             casks = [
               "ghostty" # A simple and lightweight tool for creating and managing SSH tunnels
               "google-chrome" # The web browser from Google
@@ -42,7 +45,9 @@
               "orbstack"
               "the-unarchiver" # The Unarchiver is a small and easy to use program that can unarchive many different kinds of archive files 
             ];
+            onActivation.cleanup = "zap";
           };
+
           services.spacebar = {
             enable = true;
             package = pkgs.spacebar;
