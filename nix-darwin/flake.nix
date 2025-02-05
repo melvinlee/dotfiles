@@ -79,6 +79,15 @@
             home-manager.useUserPackages = true;
             home-manager.users.melvinlee = import ./home.nix;
           }
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = true;
+              user = "melvinlee";
+              autoMigrate = true;
+            };
+          }
         ];
       };
     };
