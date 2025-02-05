@@ -33,6 +33,13 @@
             nixfmt-rfc-style # Nixfmt with RFC style
           ];
 
+          homebrew = {
+            enable = true;
+            casks = [
+              "ghostty" # A simple and lightweight tool for creating and managing SSH tunnels
+              "google-chrome" # The web browser from Google
+            ];
+          };
           services.spacebar = {
             enable = true;
             package = pkgs.spacebar;
