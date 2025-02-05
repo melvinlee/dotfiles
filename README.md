@@ -26,16 +26,11 @@ This repository contains my personal dotfiles and system configuration for macOS
 - [Home Manager](https://github.com/nix-community/home-manager)
 
 ## Installation Steps
-
-### Install dotfiles with stow:
-```bash
-stow .
-```
-
 ### Install Nix Package Manager
 ```bash
-# Install Nix for macOS
-sh <(curl -L https://nixos.org/nix/install)
+# Install Nix using Nix installer from Determinate Systems
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
+  sh -s -- install
 
 # To verify that Nix has been installed successfully,
 nix-shell -p neofetch --run neofetch
@@ -45,11 +40,8 @@ nix-shell -p neofetch --run neofetch
 ```sh
 cd /nix-darwin
 
-# Initialize flake
-nix flake init -t nix-darwin
-
 # Build initial configuration
-nix build .#mini
+nix run nix-darwin -- switch --flake .#mini
 
 # Create first generation
 darwin-rebuild switch --flake .#mini
@@ -58,8 +50,6 @@ darwin-rebuild switch --flake .#mini
 ## Configuration
 The configuration is organized into the following directories:
 
-- `git/`: Git configuration files
-- `nix/`: Nix package manager configuration
 - `nix-darwin/`: System configuration using Nix-Darwin
 
 ## Troubleshooting
@@ -81,5 +71,4 @@ Common issues and solutions:
 
 ### Tutorials & Guides
 - [Getting started with Nix on MacOS](https://nixcademy.com/2024/01/15/nix-on-macos/)
-- [macOS Setup Guide](https://sourabhbajaj.com/mac-setup/)
 - [Declarative macOS Configuration](https://xyno.space/post/nix-darwin-introduction)
