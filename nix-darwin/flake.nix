@@ -17,9 +17,9 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [
-        neovim
-        cowsay
-        nushell
+        neovim # Vim-fork focused on extensibility and usability
+        cowsay # A configurable talking cow
+        nushell # A modern shell written in Rust
       ];
 
       services.spacebar = {

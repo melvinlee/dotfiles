@@ -25,6 +25,9 @@
     just # Just a command runner
     kubernetes-helmPlugins.helm-diff # A helm plugin that shows a diff explaining what a helm upgrade would change
     opentofu  # Open source Tofu
+    awscli # Universal Command Line Interface for Amazon Web Services
+    fzf # A command-line fuzzy finder
+    podman # Podman is a daemonless container engine for developing, managing, and running OCI Containers on your Linux System
   ];
 
   home.file = {
