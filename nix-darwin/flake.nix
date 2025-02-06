@@ -45,6 +45,7 @@
               "hammerspoon" # Staggeringly powerful macOS desktop automation with Lua
               "orbstack"
               "the-unarchiver" # The Unarchiver is a small and easy to use program that can unarchive many different kinds of archive files 
+              "vlc" # VLC media player
             ];
             onActivation.cleanup = "zap";
           };
