@@ -30,6 +30,7 @@
     fzf # A command-line fuzzy finder
     podman # Podman is a daemonless container engine for developing, managing, and running OCI Containers on your Linux System
     fabric-ai # open-source framework for augmenting humans using AI
+    devbox # DevBox is a command-line tool that allows you to easily create and manage isolated development environments using Docker
   ];
 
   home.file = {
