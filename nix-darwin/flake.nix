@@ -38,6 +38,7 @@
             brews = [
               "stow" # GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located in separate directories on the filesystem, and makes them appear to be installed in the same place.
               "ollama" 
+              "qemu" # QEMU is a generic and open source machine emulator and virtualizer.
             ];
             casks = [
               "ghostty" # A simple and lightweight tool for creating and managing SSH tunnels
@@ -46,6 +47,7 @@
               "orbstack"
               "the-unarchiver" # The Unarchiver is a small and easy to use program that can unarchive many different kinds of archive files 
               "vlc" # VLC media player
+              "vagrant" # Vagrant is a tool for building and managing virtual machine environments in a single workflow
             ];
             onActivation.cleanup = "zap";
           };
