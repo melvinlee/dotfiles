@@ -32,6 +32,7 @@
     fabric-ai # open-source framework for augmenting humans using AI
     devbox # DevBox is a command-line tool that allows you to easily create and manage isolated development environments using Docker
     talosctl # Talosctl is a command-line utility for interacting with a Talos cluster
+    wget # A network utility to retrieve files from the Web
   ];
 
   home.file = {
