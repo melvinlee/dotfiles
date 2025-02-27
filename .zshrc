@@ -29,6 +29,7 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::sudo
 zinit snippet OMZP::opentofu
+zinit snippet OMZP::direnv
 
 # Load completions
 autoload -U compinit && compinit
