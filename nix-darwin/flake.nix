@@ -48,6 +48,7 @@
               "the-unarchiver" # The Unarchiver is a small and easy to use program that can unarchive many different kinds of archive files 
               "vlc" # VLC media player
               "vagrant" # Vagrant is a tool for building and managing virtual machine environments in a single workflow
+              "notion" # Notion is a note-taking and collaboration application
             ];
             onActivation.cleanup = "zap";
           };
