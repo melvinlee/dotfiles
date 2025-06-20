@@ -36,6 +36,7 @@
     direnv # direnv is a shell extension that manages environment variables depending on the current directory
     gh # GitHub CLI
     nodejs # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
+    uv # An extremely fast Python package and environment manager
   ];
 
   home.file = {
