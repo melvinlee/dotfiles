@@ -34,6 +34,8 @@
     talosctl # Talosctl is a command-line utility for interacting with a Talos cluster
     wget # A network utility to retrieve files from the Web
     direnv # direnv is a shell extension that manages environment variables depending on the current directory
+    gh # GitHub CLI
+    nodejs # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
   ];
 
   home.file = {
