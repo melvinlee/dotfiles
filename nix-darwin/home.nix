@@ -14,7 +14,6 @@
   home.packages = with pkgs;[
     httpie # HTTPie is a command line HTTP client
     kind # Kubernetes IN Docker - local clusters for testing Kubernetes
-    checkov # Infrastructure as Code Static Analysis
     kubernetes-helm # The Kubernetes Package Manager
     kubectl # Kubernetes command-line tool
     kubectx # Faster way to switch between clusters and namespaces in kubectl
