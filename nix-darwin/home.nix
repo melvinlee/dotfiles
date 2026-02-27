@@ -8,8 +8,6 @@
   home.homeDirectory = "/Volumes/SSD/melvinlee";
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
-  nixpkgs.config.allowUnfree = true;
-
   # Makes sense for user specific applications that shouldn't be available system-wide
   home.packages = with pkgs;[
     httpie # HTTPie is a command line HTTP client
@@ -37,6 +35,7 @@
     nodejs # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
     uv # An extremely fast Python package and environment manager
     glow #Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.
+    github-copilot-cli # GitHub Copilot CLI brings the power of Copilot coding agent directly to your terminal
   ];
 
   home.file = {
