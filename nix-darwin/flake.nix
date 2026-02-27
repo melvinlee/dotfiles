@@ -40,6 +40,8 @@
               "ollama" 
               "qemu" # QEMU is a generic and open source machine emulator and virtualizer.
               "terraform" # Terraform is an open-source infrastructure as code software tool created by HashiCorp.
+              "AlexsJones/llmfit/llmfit" # A terminal tool that right-sizes LLM models to your system's RAM, CPU, and GPU. Detects your hardware, scores each model across quality, speed, fit, and context dimensions, and tells you which ones will actually run well on your machine.
+              "arimxyer/tap/models"  # A fast CLI and TUI for browsing AI models, benchmarks, and coding agents.
             ];
             casks = [
               "ghostty" # A simple and lightweight tool for creating and managing SSH tunnels
@@ -66,8 +68,8 @@
 
           users.users.melvinlee.home = "/Volumes/SSD/melvinlee";
           home-manager.backupFileExtension = "backup";
+          system.primaryUser = "melvinlee";
 
-          services.nix-daemon.enable = true;
           nix.settings.experimental-features = "nix-command flakes";
 
           # Set Git commit hash for darwin-version.
