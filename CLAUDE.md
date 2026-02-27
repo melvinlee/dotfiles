@@ -6,7 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Apply full nix-darwin + Home Manager configuration
-darwin-rebuild switch --flake ./nix-darwin#mini
+# Use path: prefix to avoid git repo ownership error when running with sudo
+sudo darwin-rebuild switch --flake 'path:/Volumes/SSD/melvinlee/Developer/dotfiles/nix-darwin#mini'
 
 # Apply Home Manager only (faster, no sudo needed)
 home-manager switch
