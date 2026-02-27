@@ -36,6 +36,7 @@
     gh # GitHub CLI
     nodejs # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
     uv # An extremely fast Python package and environment manager
+    glow #Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.
   ];
 
   home.file = {
