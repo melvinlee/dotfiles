@@ -3,6 +3,10 @@
 [![Nix Version](https://img.shields.io/badge/Nix-2.19-blue.svg)](https://nixos.org)
 [![Darwin Version](https://img.shields.io/badge/Darwin-23.0.0-blue.svg)](https://github.com/LnL7/nix-darwin)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-000000?logo=apple&logoColor=white)](https://www.apple.com/macos/)
+[![nixpkgs](https://img.shields.io/badge/nixpkgs-unstable-5277C3?logo=nixos&logoColor=white)](https://github.com/NixOS/nixpkgs/tree/nixpkgs-unstable)
+[![Shell](https://img.shields.io/badge/Shell-zsh-89E051?logo=gnu-bash&logoColor=white)](https://www.zsh.org/)
+[![Last Commit](https://img.shields.io/github/last-commit/melvinlee/dotfiles)](https://github.com/melvinlee/dotfiles/commits/main)
 
 ## Introduction
 This repository contains my personal dotfiles and system configuration for macOS using Nix and Nix-Darwin.
