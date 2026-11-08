@@ -1,78 +1,70 @@
 # Dotfiles Configuration
 
-[![Nix Version](https://img.shields.io/badge/Nix-2.19-blue.svg)](https://nixos.org)
-[![Darwin Version](https://img.shields.io/badge/Darwin-23.0.0-blue.svg)](https://github.com/LnL7/nix-darwin)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-000000?logo=apple&logoColor=white)](https://www.apple.com/macos/)
-[![nixpkgs](https://img.shields.io/badge/nixpkgs-unstable-5277C3?logo=nixos&logoColor=white)](https://github.com/NixOS/nixpkgs/tree/nixpkgs-unstable)
+[![Homebrew](https://img.shields.io/badge/Homebrew-FBB040?logo=homebrew&logoColor=black)](https://brew.sh)
 [![Shell](https://img.shields.io/badge/Shell-zsh-89E051?logo=gnu-bash&logoColor=white)](https://www.zsh.org/)
 [![Last Commit](https://img.shields.io/github/last-commit/melvinlee/dotfiles)](https://github.com/melvinlee/dotfiles/commits/main)
 
 ## Introduction
-This repository contains my personal dotfiles and system configuration for macOS using Nix and Nix-Darwin.
+This repository contains my personal dotfiles and macOS setup. Packages are installed with Homebrew via `launch.sh`, and dotfiles are symlinked into `~` with GNU Stow.
 
 ## Features
-- System-wide package management with Nix
-- Declarative system configuration with Nix-Darwin
-- Home directory configuration with Home Manager
-- Git configuration management
-- Shell environment setup
+- One-command package bootstrap from a YAML package list
+- Optional upgrade of already-installed packages
+- Dotfile management with GNU Stow
+- Zsh shell environment setup
 
 ## Prerequisites
-### System Requirements
-- macOS 10.15 (Catalina) or later
-- Administrative privileges
-- Xcode Command Line Tools installed
+- macOS on Apple Silicon
+- Xcode Command Line Tools (`xcode-select --install`)
+- `python3` (used by `launch.sh` to parse the package list)
 
-### Required Tools
-- [Nix Package Manager](https://nixos.org/download.html)
-- [Nix-Darwin](https://github.com/LnL7/nix-darwin)
-- [Home Manager](https://github.com/nix-community/home-manager)
+Homebrew is installed automatically by `launch.sh` if it is missing.
 
-## Installation Steps
-### Install Nix Package Manager
+## Installation
+### Install packages
 ```bash
-# Install Nix using Nix installer from Determinate Systems
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
-  sh -s -- install
+# Install everything listed in launch-package.yml
+./launch.sh
 
-# To verify that Nix has been installed successfully,
-nix-shell -p neofetch --run neofetch
+# Also update Homebrew and upgrade packages that are already installed
+./launch.sh --upgrade
+
+# Use a different package list
+./launch.sh path/to/packages.yml
 ```
 
-### Install Nix-Darwin
-```sh
-cd /nix-darwin
+Edit `launch-package.yml` to add or remove packages:
 
-# Build initial configuration
-nix run nix-darwin -- switch --flake .#mini
+```yaml
+packages:   # Homebrew formulae
+    - git
+    - kubectl
 
-# Create first generation
-darwin-rebuild switch --flake .#mini
+cask:       # Homebrew casks (GUI apps)
+    - google-chrome
 ```
 
-## Configuration
-The configuration is organized into the following directories:
+### Symlink dotfiles
+```bash
+# Run from the repo root
+stow .
+```
 
-- `nix-darwin/`: System configuration using Nix-Darwin
+## Repository Layout
+| Path | Purpose |
+|---|---|
+| `launch.sh` | Installs Homebrew (if needed) and the packages in `launch-package.yml` |
+| `launch-package.yml` | List of Homebrew formulae and casks to install |
+| `.zshrc` | Zsh configuration, symlinked to `~` by Stow |
+| `.stowrc` | Stow options (target `~`, ignored files) |
+| `archive/nix-darwin/` | Retired nix-darwin + Home Manager configuration, kept for reference |
 
 ## Troubleshooting
-Common issues and solutions:
-
-1. **Permission errors**: Run commands with `sudo` when necessary
-2. **Broken packages**: Try running `nix-collect-garbage -d` to clean up old packages
+1. **`command not found: launch.sh`**: run it as `./launch.sh` from the repo root.
+2. **Permission denied**: `chmod +x launch.sh`.
+3. **Stow conflicts**: remove or back up the existing file in `~` and re-run `stow .`.
 
 ## References
-### Official Documentation
-- [Nix Package Manager](https://nixos.org/manual/nix/stable/)
-- [Nix-Darwin](https://github.com/LnL7/nix-darwin)
-- [Home Manager](https://nix-community.github.io/home-manager/)
-
-### Community Resources
-- [NixOS Wiki](https://nixos.wiki/)
-- [Nix Pills](https://nixos.org/guides/nix-pills/)
-- [Awesome Nix](https://github.com/nix-community/awesome-nix)
-
-### Tutorials & Guides
-- [Getting started with Nix on MacOS](https://nixcademy.com/2024/01/15/nix-on-macos/)
-- [Declarative macOS Configuration](https://xyno.space/post/nix-darwin-introduction)
+- [Homebrew](https://docs.brew.sh/)
+- [GNU Stow](https://www.gnu.org/software/stow/manual/stow.html)
