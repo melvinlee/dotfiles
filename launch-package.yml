@@ -1,0 +1,28 @@
+packages:
+    - stow # GNU Stow is a symlink farm manager used to symlink this repo's dotfiles into $HOME
+    - git # Git
+    - gh # GitHub CLI
+    - jq # Jq is a lightweight and flexible command-line JSON processor
+    - nodejs # Node.js
+    - talosctl # Talosctl is a command-line tool for managing Talos clusters
+    - direnv # direnv is a shell extension that manages environment variables depending on the current directory
+    - kubectl # kubectl is a command-line tool for controlling Kubernetes clusters
+    - kubectx  # kubectx is a command-line tool for switching between Kubernetes contexts and namespaces
+    - k9s # k9s is a terminal-based UI to interact with your Kubernetes clusters
+    - helmfile # helmf is a command-line tool for managing Helm charts and releases
+    - awscli # AWS CLI is a command-line tool for managing AWS services
+    - cmatrix # cmatr is a command-line tool for managing and visualizing cloud infrastructure
+    - podman # Podman is a daemonless container engine for developing, managing, and running OCI containers on your Linux system
+    - uv # python-uv is a Python library for asynchronous I/O operations
+    - ollama # ollama is a command-line tool for managing Ollama projects and resources
+    - fzf # fzf is a command-line fuzzy finder for files, directories, and other items
+
+cask: 
+    - betterdisplay # BetterDisplay lets you tweak displays on macOS: HiDPI scaling, custom resolutions, brightness control and virtual screens.
+    - claude-code
+    - google-chrome 
+    - orbstack # Orbstack is a lightweight, fast, and secure container runtime for macOS that allows you to run Linux containers natively on your Mac without the overhead of a full virtual machine.
+    - the-unarchiver # The Unarchiver is a free and easy-to-use program that can unarchive many different kinds of archive files, including Zip, RAR, 7-zip, Tar, Gzip and Bzip2 formats.
+    - vlc  # VLC is a free and open-source cross-platform multimedia player that plays most multimedia files, as well as DVDs, audio CDs, VCDs, and various streaming protocols.
+    - supacode # Supacode is a native terminal coding agents command center
+    - docker/tap/sbx # Docker Sandboxes: build, run, and govern agents
