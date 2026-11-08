@@ -39,7 +39,6 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
 # ZSH history configuration
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -65,7 +64,6 @@ alias d=docker
 alias k=kubectl
 alias tf=tofu
 
-
 # Shell integrations
 eval "$(fzf --zsh)"
 
@@ -76,3 +74,8 @@ yt() {
     local video_link="$1"
     fabric -y "$video_link" --transcript
 }
+export PATH="$HOME/.local/bin:$PATH"
+
+# taobao-native CLI
+TBN_CLI_BIN="/Volumes/SSD/melvinlee/Library/Application Support/taobao/cli/bin"
+case ":$PATH:" in *":$TBN_CLI_BIN:"*) ;; *) export PATH="$PATH:$TBN_CLI_BIN" ;; esac
