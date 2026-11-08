@@ -39,11 +39,12 @@
             enable = true;
             brews = [
               "stow" # GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located in separate directories on the filesystem, and makes them appear to be installed in the same place.
-              "ollama" 
               "qemu" # QEMU is a generic and open source machine emulator and virtualizer.
               "terraform" # Terraform is an open-source infrastructure as code software tool created by HashiCorp.
               "AlexsJones/llmfit/llmfit" # A terminal tool that right-sizes LLM models to your system's RAM, CPU, and GPU. Detects your hardware, scores each model across quality, speed, fit, and context dimensions, and tells you which ones will actually run well on your machine.
               "arimxyer/tap/models"  # A fast CLI and TUI for browsing AI models, benchmarks, and coding agents.
+              "azd"
+              "python"
             ];
             casks = [
               "ghostty" # A simple and lightweight tool for creating and managing SSH tunnels
@@ -56,6 +57,8 @@
               "notion" # Notion is a note-taking and collaboration application
             ];
             onActivation.cleanup = "zap";
+            onActivation.autoUpdate = true; # `brew update` before activating
+            onActivation.upgrade = true;    # upgrade outdated formulae & casks
           };
 
           services.spacebar = {
