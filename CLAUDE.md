@@ -33,4 +33,5 @@ stow .
 
 - Target host platform: Apple Silicon macOS
 - User home directory: `/Volumes/SSD/melvinlee` (non-standard, on external SSD)
-- Stow target is `~/` and ignores `.stowrc`, `archive/`, `.claude/`, and `launch.*`
+- Stow target is `~/` and ignores `.stowrc`, `archive/`, `.claude/`, `launch.*`, and `.pre-commit-config.yaml`
+- A gitleaks pre-commit hook scans staged changes for secrets (`.pre-commit-config.yaml`). After cloning, run `pre-commit install` to enable it

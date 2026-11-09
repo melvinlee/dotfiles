@@ -4,3 +4,4 @@
 --ignore=archive
 --ignore=.claude
 --ignore=launch.*
+--ignore=\.pre-commit-config\.yaml

@@ -16,6 +16,8 @@ packages:
     - uv # python-uv is a Python library for asynchronous I/O operations
     - ollama # ollama is a command-line tool for managing Ollama projects and resources
     - fzf # fzf is a command-line fuzzy finder for files, directories, and other items
+    - pre-commit # pre-commit is a framework for managing and running git pre-commit hooks
+    - gitleaks # gitleaks scans git repos and files for hardcoded secrets
 
 cask: 
     - betterdisplay # BetterDisplay lets you tweak displays on macOS: HiDPI scaling, custom resolutions, brightness control and virtual screens.
