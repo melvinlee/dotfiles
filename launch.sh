@@ -43,19 +43,38 @@ if ! command -v python3 >/dev/null 2>&1; then
   exit 1
 fi
 
-upgrade_package() {
-  if [[ "$UPGRADE" == true ]]; then
-    echo "Upgrading: $*"
-    if ! brew upgrade "$@"; then
-      echo "Skipping failed upgrade: $*" >&2
-    fi
-  fi
-}
+outdated_formulae=""
+outdated_casks=""
 
 if [[ "$UPGRADE" == true ]]; then
-  echo "Updating Homebrew..."
   brew update
+  # Strip tap prefixes so names match `brew list --versions` output
+  outdated_formulae="$(brew outdated --formula --quiet | sed 's#.*/##' || true)"
+  outdated_casks="$(brew outdated --cask --quiet | sed 's#.*/##' || true)"
 fi
+
+# Usage: report_installed <formula|cask> <package>
+# Prints the installed version and, with --upgrade, upgrades it only if outdated.
+report_installed() {
+  local kind="$1" pkg="$2" versions outdated
+  versions="$(brew list "--$kind" --versions "${pkg##*/}")"
+
+  if [[ "$UPGRADE" != true ]]; then
+    echo "Already installed: $versions"
+    return
+  fi
+
+  if [[ "$kind" == cask ]]; then outdated="$outdated_casks"; else outdated="$outdated_formulae"; fi
+
+  if grep -qxF "${versions%% *}" <<< "$outdated"; then
+    echo "Upgrading: $versions"
+    if ! brew upgrade "--$kind" "$pkg"; then
+      echo "Skipping failed upgrade: $pkg" >&2
+    fi
+  else
+    echo "Up to date: $versions"
+  fi
+}
 
 echo "Using app definition file: $APPS_FILE"
 echo "Installing packages..."
@@ -101,15 +120,13 @@ for cmd in "${commands[@]}"; do
     if [[ "${command_parts[2]}" == "--cask" ]]; then
       pkg="${command_parts[3]}"
       if brew list --cask "$pkg" >/dev/null 2>&1; then
-        echo "Already installed: $(brew list --cask --versions "${pkg##*/}")"
-        upgrade_package --cask "$pkg"
+        report_installed cask "$pkg"
         continue
       fi
     else
       pkg="${command_parts[2]}"
       if brew list --formula "$pkg" >/dev/null 2>&1; then
-        echo "Already installed: $(brew list --formula --versions "${pkg##*/}")"
-        upgrade_package --formula "$pkg"
+        report_installed formula "$pkg"
         continue
       fi
     fi
@@ -118,7 +135,9 @@ for cmd in "${commands[@]}"; do
   if output="$(${command_parts[@]} 2>&1)"; then
     printf '%s\n' "$output"
   else
-    if echo "$output" | grep -Eqi 'already installed|already an App|already exists|is already installed'; then
+    if echo "$output" | grep -qi 'already an App'; then
+      echo "Skipped: ${pkg##*/} exists in /Applications but isn't managed by Homebrew (adopt with: brew install --cask --adopt $pkg)"
+    elif echo "$output" | grep -Eqi 'already installed|already exists'; then
       echo "Already installed or skipped: $cmd"
     else
       printf '%s\n' "$output" >&2
